@@ -12,12 +12,9 @@
  *
  */
 
-//MODIFY THE FOLLOWING VALUE!
 
 myDomain = "http://" + window.location.host;
 
-// -------------
-//You shouldn't need to modify any of the following
 
 if(localStorage['x'] && localStorage['y']){
     document.querySelector('#setCoordsView').style.display = 'none';
