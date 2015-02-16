@@ -1,5 +1,5 @@
 /**
- Copyright (c) 2015, Austin Meyers & Mark Silliman
+ Copyright (c) 2015, Austin Meyers (AK5A) & Mark Silliman
  All rights reserved.
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
  1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -14,6 +14,7 @@
 
 //MODIFY THE FOLLOWING VALUE!
 
+//myDomain = "http://ec2-54-200-33-28.us-west-2.compute.amazonaws.com"; //Modify this to be your EC2's public dns!
 myDomain = "http://ec2-54-200-33-28.us-west-2.compute.amazonaws.com"; //Modify this to be your EC2's public dns!
 
 // -------------
@@ -93,7 +94,6 @@ orderButton.onclick = function(){
 //when the cancel button is pressed tell the server to cancel the request and update the UI
 cancelButton.onclick = function(){
 	cancel(myDomain,localStorage["id"]);
-	chrome.browserAction.setBadgeText({text: ''});
 	localStorage.removeItem('id');
 	isOrdered();
 }
@@ -134,14 +134,12 @@ function statuscheck(domain,id) {
         if(status != "pending") {
             //we're either complete or failed so mark it as canceled
             localStorage.removeItem('id');
-            chrome.browserAction.setBadgeText({text: ''}); //reset to blank
             isOrdered(); //reset the UI
         }
         else {
             //we're pending still
             //show the number of people before you on the badge
-		    chrome.browserAction.setBadgeBackgroundColor({color:[96, 191, 86, 255]});
-		    chrome.browserAction.setBadgeText({text: '' + howmanybeforeme});
+		    
         }
 	});
 
@@ -158,3 +156,4 @@ function cancel(domain,id) {
 		});
 	});
 }
+

@@ -1,6 +1,6 @@
 <!--
 
- Copyright (c) 2015, Austin Meyers & Mark Silliman
+ Copyright (c) 2015, Austin Meyers (AK5A) & Mark Silliman
  All rights reserved.
  Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
  1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -16,25 +16,45 @@
 <html>
   <head>
     <title>CoffeeBot</title>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+     <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
      <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="apple-touch-icon" href="/img/icon128.png">
+      <link rel="apple-touch-icon" href="img/icon.png">
     <style>
+	    
+	  body, html{
+        overflow: hidden;
+        position:fixed;
+        width:100%;
+        height: 100%;		  
+	  }
       body {
         font-family: Roboto, Helvetica, Arial, sans-serif;
-        font-size: 14px;
+        font-size: 1.5rem;
         /*width:220px;*/
         /*height: 310px;*/
         background: #fff;
         padding:0;
         margin:0;
+
       }
+      input { /* Disable iOS form rounding*/
+		-webkit-appearance: none;
+	    border-radius: 0; 
+	    
+	  }
+	  input[type=text]{
+		  font-size:1.5rem;
+	  }
+	  .container{
+		  max-width: 640px;
+	  }
       .btn{
 	      background-color:#60BF56;
 	      margin-left:auto;
 	      margin-right:auto;
 	      display: block;
+	      width:100%;
       }
       button:focus{
 	      background-color: #3E8F35;
@@ -53,7 +73,10 @@
 		  opacity: 0.5;
       }
       #turtlebot-still, #turtlebot-animation{
-	  	width: 100%;
+	  	width: auto;
+	  	max-width: 100%;
+	  	max-height: 600px;
+	  	margin: 0 auto;
       }
       footer{
 	      position: absolute;
@@ -82,19 +105,25 @@
 				</div>
 			</div>
 			<footer>
+			<div class="container">				
 				<button id="saveCoordsButton" class="waves-effect waves-light btn btn-large">Save</button>
+			</div>
 			</footer>
 		</div>
 		<div id="orderView"style="display:none;">
 			<i class="small mdi-action-settings" id="editCoordsButton"></i>			
-			<img src="img/turtlebot-still.jpg" id="turtlebot-still">
-			<img src="img/turtlebot-animation.gif" id="turtlebot-animation" style="display:none;">					
+	
+				<img src="img/turtlebot-still.jpg" id="turtlebot-still">
+				<img src="img/turtlebot-animation.gif" id="turtlebot-animation" style="display:none;">					
+
 			<footer>
+			<div class="container">				
 				<button id="cancelButton" class="waves-effect waves-light btn btn-large" style="display:none;">Cancel</button>
 				<button  id="orderButton" class="waves-effect waves-light btn btn-large">Order</button>
+			</div>
 		    </footer>
        	</div>
-	   	<script type="text/javascript" src="js/popup.js"></script>
+	   	<script type="text/javascript" src="js/index.js"></script>   	
 	</body>
 </html>
 
