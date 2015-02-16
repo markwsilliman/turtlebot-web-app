@@ -14,8 +14,7 @@
 
 //MODIFY THE FOLLOWING VALUE!
 
-//myDomain = "http://ec2-54-200-33-28.us-west-2.compute.amazonaws.com"; //Modify this to be your EC2's public dns!
-myDomain = "http://ec2-54-200-33-28.us-west-2.compute.amazonaws.com"; //Modify this to be your EC2's public dns!
+myDomain = "http://" + window.location.host;
 
 // -------------
 //You shouldn't need to modify any of the following
